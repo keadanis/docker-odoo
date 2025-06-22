@@ -38,6 +38,7 @@ RUN apt-get update && \
         python3-xlrd \
         python3-xlwt \
         python3-paramiko \
+        python3-webssh \
         xz-utils && \
     if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
