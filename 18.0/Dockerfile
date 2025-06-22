@@ -37,9 +37,8 @@ RUN apt-get update && \
         python3-watchdog \
         python3-xlrd \
         python3-xlwt \
-        python3-paramiko \
-        python3-webssh \
         xz-utils && \
+        pip install --no-cache-dir paramiko webssh && \
     if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
     fi; \
