@@ -9,8 +9,16 @@ ENV LANG en_US.UTF-8
 # Retrieve the target architecture to install the correct wkhtmltopdf package
 ARG TARGETARCH
 
-# Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
+# 1. Primero instalar las dependencias de compilación necesarias
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        python3-dev \
+        libffi-dev \
+        libssl-dev
 
+# 2. Instalar el resto de dependencias
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
@@ -38,7 +46,8 @@ RUN apt-get update && \
         python3-xlrd \
         python3-xlwt \
         xz-utils && \
-        pip install --no-cache-dir paramiko webssh && \
+        # Instalar paramiko y webssh con pip usando --break-system-packages
+        pip install --break-system-packages --no-cache-dir paramiko webssh && \
     if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
     fi; \
