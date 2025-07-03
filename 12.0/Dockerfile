@@ -32,6 +32,27 @@ RUN apt-get update \
             python3-xlrd \
             python3-xlwt \
             xz-utils \
+            # Dependencias de OdooCR
+            cryptography==2.5 \
+            xmlsig==0.1.3 \
+            jsonschema==4.0.0 \
+            pyopenssl==17.5.0 \
+            zeep==3.4.0 \
+            PyPDF2==1.26.0 \
+            passlib==1.6.5 \
+            werkzeug==0.11.15 \
+            python-dateutil==2.8.2 \
+            PyYAML==3.12 \
+            psutil==4.3.1 \
+            image==1.5.33 \
+            jinja2==2.10.1 \
+            reportlab==3.3.0 \
+            html2text==2016.9.19 \
+            num2words==0.5.6 \
+            paramiko==2.8.1 \
+            phonenumbers==8.12.39 \
+            vatnumber==1.2 \
+            xlsxwriter==0.9.3 \
         && curl -o wkhtmltox.deb -sSL https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb \
         && echo '7e35a63f9db14f93ec7feeb0fce76b30c08f2057 wkhtmltox.deb' | sha1sum -c - \
         && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
