@@ -49,7 +49,7 @@ RUN pip3 install --no-cache-dir \
         python-dateutil==2.8.2 \
         PyYAML==3.12 \
         psutil==4.3.1 \
-        pillow==6.2.2 \  # image -> pillow
+        image==1.5.33 \
         jinja2==2.10.1 \
         reportlab==3.3.0 \
         html2text==2016.9.19 \
